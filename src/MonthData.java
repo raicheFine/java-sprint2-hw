@@ -8,8 +8,7 @@ public class MonthData {
         }
     }
 
-    int sumStepsFromMonth(int[] days) { // Общее кол-во шагов за месяц
-
+    int sumStepsFromMonth() { // Общее кол-во шагов за месяц
         int totalMonthSteps = 0;
 
         for (int day : days) {
@@ -19,9 +18,8 @@ public class MonthData {
         return totalMonthSteps;
     }
 
-    int maxSteps(int[] days) { // Рекорд по кол-ву шагов за месяц
-
-        int max = days[0];
+    int maxSteps() { // Рекорд по кол-ву шагов за месяц
+        int max = 0;
 
         for (int day : days) {
             max = Math.max(max, day);
@@ -31,14 +29,13 @@ public class MonthData {
     }
 
     int bestSeries(int goalByStepPerDay) { // Продолжительность лучшей серии
-
         int currentSeries = 0;
         int finalSeries = 0;
 
         for (int day : days) {
             if (day >= goalByStepPerDay) {
                 currentSeries++;
-                finalSeries = currentSeries;
+                finalSeries = Math.max(currentSeries, finalSeries);
             } else {
                 currentSeries = 0;
             }
@@ -46,9 +43,7 @@ public class MonthData {
         return finalSeries;
     }
 
-    int averageStepsPerMonth(int[] days) { // Среднее кол-во шагов за месяц
-
-        return sumStepsFromMonth(days) / days.length;
+    int averageStepsPerMonth() { // Среднее кол-во шагов за месяц
+        return sumStepsFromMonth() / days.length;
     }
-
 }
