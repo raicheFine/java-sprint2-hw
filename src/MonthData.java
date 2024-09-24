@@ -40,6 +40,7 @@ public class MonthData {
                 currentSeries = 0;
             }
         }
+
         return finalSeries;
     }
 

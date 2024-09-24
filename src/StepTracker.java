@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class StepTrecker {
+public class StepTracker {
 
     int goalByStepsPerDay = 10000;
     Scanner scanner;
     MonthData[] monthToData = new MonthData[12];
     Converter converter = new Converter();
 
-    public StepTrecker(Scanner scanner) {
+    public StepTracker(Scanner scanner) {
         this.scanner = scanner;
 
         for (int i = 0; i < monthToData.length; i++) {
@@ -56,10 +56,10 @@ public class StepTrecker {
     }
 
     void printStatistic() {
-        System.out.println("Введите число месяца");
+        System.out.println("Введите номер месяца(от 1 до 12)");
         int month = scanner.nextInt();
         if (month > 12 || month < 1) {
-            System.out.println("Некорректный номер месяца!!");
+            System.out.println("Некорректный номер месяца!");
         }
 
         MonthData monthData = monthToData[month - 1];

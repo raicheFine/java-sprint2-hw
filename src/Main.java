@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        StepTrecker stepTrecker = new StepTrecker(new Scanner(System.in));
+        Scanner scanner = new Scanner(System.in);
+        StepTracker stepTracker = new StepTracker(scanner);
 
         System.out.println("Вас приветствует счётчик калорий!");
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             printMenu();
@@ -14,19 +14,14 @@ public class Main {
             int actionNumber = scanner.nextInt();
 
             switch (actionNumber) {
-                case 1:
-                    stepTrecker.addNewNumberStepsPerDay();
-                    break;
-                case 2:
-                    stepTrecker.changeStepGoal();
-                    break;
-                case 3:
-                    stepTrecker.printStatistic();
-                    break;
-                case 4:
+                case 1 -> stepTracker.addNewNumberStepsPerDay();
+                case 2 -> stepTracker.changeStepGoal();
+                case 3 -> stepTracker.printStatistic();
+                case 4 -> {
+                    System.out.println("Выход из приложения");
                     return;
-                default:
-                    System.out.println("Неизвестная команда");
+                }
+                default -> System.out.println("Неизвестная команда");
             }
         }
     }

@@ -2,7 +2,7 @@ public class Converter {
 
     int convertToKm(int steps) {
 
-        return (steps * 75) / 100_000;    // 1km = 100_000cm;
+        return (steps * 75) / 100_000;    // 1km = 100_000 cm;
     }
 
     int convertStepsToKilocalories(int steps) {
